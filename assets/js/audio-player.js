@@ -30,7 +30,7 @@
       album: "PSG4L vol.1 RIP SLO",
       producer: "PSG4L Presents",
       year: "2025",
-      cover: "assets/images/gsr_logo.jpg",
+      cover: "assets/images/psg4l_logo.jpg",
       duration: "3:18",
       bpm: 94,
       key: "G minor",
