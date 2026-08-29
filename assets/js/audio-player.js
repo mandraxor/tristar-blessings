@@ -1,6 +1,7 @@
 ﻿/**
- * TRiSTAR - LUXURY AUDIO PLAYER & WEB AUDIO SYNTH ENGINE
- * Features procedural West Coast hip-hop beat generation, live Web Audio Analyser, and Equalizer Visualizer.
+ * TRiSTAR - LUXURY AUDIO PLAYER & WEB AUDIO ENGINE
+ * Supports real audio playback for "Blessings" (blessed.wav) with live Web Audio Analyser Equalizer,
+ * and procedural fallback engine for catalog previews.
  */
 
 (function() {
@@ -10,23 +11,24 @@
   const TRACKS = [
     {
       id: 1,
-      title: "BLESSING$",
+      title: "Blessings (Official Single)",
       artist: "TRiSTAR",
-      album: "BLESSING$",
+      album: "Blessings - Single",
       producer: "HOLLYWOOD",
-      year: "2025/2026",
+      year: "2026",
       cover: "assets/images/blessings_cover.jpg",
-      duration: "3:42",
+      audioSrc: "assets/audio/blessed.wav",
+      duration: "1:15",
       bpm: 88,
       key: "F minor",
-      scale: [174.61, 207.65, 233.08, 261.63, 311.13, 349.23, 415.30] // Soulful West Coast vibe
+      scale: [174.61, 207.65, 233.08, 261.63, 311.13, 349.23, 415.30]
     },
     {
       id: 2,
       title: "PSG4L Anthem (RIP SLO)",
       artist: "TRiSTAR",
       album: "PSG4L vol.1 RIP SLO",
-      producer: "PSG4L / PSG4L Presents",
+      producer: "PSG4L Presents",
       year: "2025",
       cover: "assets/images/gsr_logo.jpg",
       duration: "3:18",
@@ -93,6 +95,8 @@
   let audioCtx = null;
   let analyser = null;
   let masterGain = null;
+  let mediaSource = null;
+  let audioElement = null;
   let beatTimer = null;
   let step = 0;
   let currentTime = 0;
@@ -112,24 +116,52 @@
   const volumeSlider = document.getElementById('player-volume');
   const visualizerCanvas = document.getElementById('player-visualizer');
 
-  // Initialize Web Audio Context
+  // Initialize Web Audio Context & Audio Tag
   function initAudio() {
-    if (audioCtx) return;
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContextClass();
-    analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 64;
+    if (!audioElement) {
+      audioElement = new Audio();
+      audioElement.crossOrigin = "anonymous";
+      audioElement.preload = "auto";
+      audioElement.addEventListener('ended', window.nextTrack);
+      audioElement.addEventListener('timeupdate', () => {
+        if (TRACKS[currentTrackIdx].audioSrc && audioElement.duration) {
+          const cur = audioElement.currentTime;
+          const dur = audioElement.duration;
+          const mins = Math.floor(cur / 60);
+          const secs = Math.floor(cur % 60).toString().padStart(2, '0');
+          if (curTimeEl) curTimeEl.textContent = `${mins}:${secs}`;
+          const durMins = Math.floor(dur / 60);
+          const durSecs = Math.floor(dur % 60).toString().padStart(2, '0');
+          if (durTimeEl) durTimeEl.textContent = `${durMins}:${durSecs}`;
+          if (progressFill) progressFill.style.width = `${(cur / dur) * 100}%`;
+        }
+      });
+    }
 
-    masterGain = audioCtx.createGain();
-    masterGain.gain.value = volumeSlider ? parseFloat(volumeSlider.value) : 0.7;
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContextClass();
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 64;
 
-    masterGain.connect(analyser);
-    analyser.connect(audioCtx.destination);
+      masterGain = audioCtx.createGain();
+      masterGain.gain.value = volumeSlider ? parseFloat(volumeSlider.value) : 0.7;
 
-    startVisualizer();
+      masterGain.connect(analyser);
+      analyser.connect(audioCtx.destination);
+
+      try {
+        mediaSource = audioCtx.createMediaElementSource(audioElement);
+        mediaSource.connect(masterGain);
+      } catch (e) {
+        console.log("Media source connected or direct mode");
+      }
+
+      startVisualizer();
+    }
   }
 
-  // Synthesize West Coast Hip-Hop Instrument Hits
+  // Synthesize West Coast Hip-Hop Instrument Hits (fallback)
   function playKick(time) {
     if (!audioCtx) return;
     const osc = audioCtx.createOscillator();
@@ -147,7 +179,6 @@
 
   function playSnare(time) {
     if (!audioCtx) return;
-    // Noise buffer
     const bufferSize = audioCtx.sampleRate * 0.15;
     const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
     const data = buffer.getChannelData(0);
@@ -213,36 +244,25 @@
     osc.stop(time + dur);
   }
 
-  // Hip-Hop Beat Engine sequencer loop
+  // Sequencer loop for catalog preview tracks
   function stepSequencer() {
-    if (!isPlaying || !audioCtx) return;
+    if (!isPlaying || !audioCtx || TRACKS[currentTrackIdx].audioSrc) return;
 
     const track = TRACKS[currentTrackIdx];
     const now = audioCtx.currentTime;
     const scale = track.scale;
-
-    // 16-step beat pattern
     const s16 = step % 16;
 
-    // West Coast Drum Pattern
-    if (s16 === 0 || s16 === 7 || s16 === 10) {
-      playKick(now);
-    }
-    if (s16 === 4 || s16 === 12) {
-      playSnare(now);
-    }
-    if (s16 % 2 === 0 || (s16 % 4 === 3 && Math.random() > 0.4)) {
-      playHiHat(now, s16 === 14);
-    }
+    if (s16 === 0 || s16 === 7 || s16 === 10) playKick(now);
+    if (s16 === 4 || s16 === 12) playSnare(now);
+    if (s16 % 2 === 0 || (s16 % 4 === 3 && Math.random() > 0.4)) playHiHat(now, s16 === 14);
 
-    // Melodic chord / soul keys
     if (s16 === 0 || s16 === 6 || s16 === 12) {
       const baseNote = scale[s16 === 0 ? 0 : (s16 === 6 ? 2 : 4)];
       playRhodesNote(baseNote, now, 0.7);
       playRhodesNote(baseNote * 1.5, now + 0.05, 0.6);
     }
 
-    // West Coast Lead Synth flourish
     if (s16 === 3 || s16 === 9 || s16 === 15) {
       const melodyNote = scale[Math.floor(Math.random() * scale.length)] * 2;
       playRhodesNote(melodyNote, now, 0.35);
@@ -291,7 +311,7 @@
   // Play / Pause toggle
   window.togglePlay = function(trackId = null) {
     initAudio();
-    if (audioCtx.state === 'suspended') {
+    if (audioCtx && audioCtx.state === 'suspended') {
       audioCtx.resume();
     }
 
@@ -317,28 +337,39 @@
 
   function playTrack() {
     isPlaying = true;
+    const track = TRACKS[currentTrackIdx];
     updateUI();
-    stepSequencer();
 
-    if (progressInterval) clearInterval(progressInterval);
-    progressInterval = setInterval(() => {
-      currentTime += 1;
-      const mins = Math.floor(currentTime / 60);
-      const secs = Math.floor(currentTime % 60).toString().padStart(2, '0');
-      if (curTimeEl) curTimeEl.textContent = `${mins}:${secs}`;
-      if (progressFill) {
-        const pct = Math.min((currentTime / 220) * 100, 100);
-        progressFill.style.width = `${pct}%`;
+    if (track.audioSrc && audioElement) {
+      if (audioElement.src !== window.location.origin + '/' + track.audioSrc && !audioElement.src.endsWith(track.audioSrc)) {
+        audioElement.src = track.audioSrc;
       }
-    }, 1000);
+      audioElement.play().catch(e => console.log("Audio play allowed on user interaction:", e));
+    } else {
+      if (audioElement) audioElement.pause();
+      stepSequencer();
+
+      if (progressInterval) clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        currentTime += 1;
+        const mins = Math.floor(currentTime / 60);
+        const secs = Math.floor(currentTime % 60).toString().padStart(2, '0');
+        if (curTimeEl) curTimeEl.textContent = `${mins}:${secs}`;
+        if (progressFill) {
+          const pct = Math.min((currentTime / 220) * 100, 100);
+          progressFill.style.width = `${pct}%`;
+        }
+      }, 1000);
+    }
 
     if (window.showToast) {
-      window.showToast(`Now Playing: ${TRACKS[currentTrackIdx].title}`);
+      window.showToast(`Now Playing: ${track.title}`);
     }
   }
 
   function pauseTrack() {
     isPlaying = false;
+    if (audioElement) audioElement.pause();
     if (beatTimer) clearTimeout(beatTimer);
     if (progressInterval) clearInterval(progressInterval);
     updateUI();
@@ -413,9 +444,9 @@
 
   if (volumeSlider) {
     volumeSlider.addEventListener('input', (e) => {
-      if (masterGain) {
-        masterGain.gain.value = parseFloat(e.target.value);
-      }
+      const vol = parseFloat(e.target.value);
+      if (masterGain) masterGain.gain.value = vol;
+      if (audioElement) audioElement.volume = vol;
     });
   }
 
@@ -423,15 +454,18 @@
     progressTrack.addEventListener('click', (e) => {
       const rect = progressTrack.getBoundingClientRect();
       const pct = (e.clientX - rect.left) / rect.width;
-      currentTime = pct * 220;
-      if (progressFill) progressFill.style.width = `${pct * 100}%`;
+      if (TRACKS[currentTrackIdx].audioSrc && audioElement && audioElement.duration) {
+        audioElement.currentTime = pct * audioElement.duration;
+      } else {
+        currentTime = pct * 220;
+        if (progressFill) progressFill.style.width = `${pct * 100}%`;
+      }
     });
   }
 
   // Expose track catalog
   window.TriStarTracks = TRACKS;
 
-  // Initialize UI on load
   document.addEventListener('DOMContentLoaded', () => {
     updateUI();
   });
