@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLESSING$ • TRiSTAR | Official Single Portal</title>
+  <meta name="description" content="Official single portal for BLESSING$ by TRiSTAR. Full tracklist, credits, producer Hollywood, composer Eric TRiSTAR McKinney, and audio previews.">
+  <meta property="og:title" content="BLESSING$ • TRiSTAR | Official Single Portal">
+  <meta property="og:description" content="Official single portal for BLESSING$ by TRiSTAR. Full tracklist, credits, producer Hollywood, composer Eric TRiSTAR McKinney, and audio previews.">
+  <meta property="og:image" content="assets/images/blessings_cover.jpg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" type="image/jpeg" href="assets/images/gsr_logo.jpg">
+</head>
+<body>
+  <canvas id="diamond-canvas"></canvas>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge">
+          <img src="assets/images/gsr_logo.jpg" alt="TRiSTAR Emblem">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name text-chrome">TRiSTAR</span>
+          <span class="brand-sub">PSG4L PRESENTS</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link ">Home</a></li>
+          <li><a href="album.html" class="nav-link active">Blessings Single</a></li>
+          <li><a href="music.html" class="nav-link ">Music & Catalog</a></li>
+          <li><a href="merch.html" class="nav-link ">Merch Store</a></li>
+          <li><a href="about.html" class="nav-link ">Biography</a></li>
+          <li><a href="gallery.html" class="nav-link ">Visuals</a></li>
+          <li><a href="contact.html" class="nav-link ">Booking & EPK</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-diamond" onclick="openPreSaveModal()">
+          <span class="sparkle-icon">✦</span> PRE-SAVE SINGLE
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+  <!-- ALBUM HERO BANNER -->
+  <section class="hero-section" style="min-height: auto; padding: 4rem 1.5rem 5rem;">
+    <div class="hero-grid">
+      <div class="hero-text-content">
+        <div class="hero-badge-pill">
+          <span class="sparkle-icon">✦</span>
+          OFFICIAL SINGLE PORTAL • 2025/2026 RELEASE
+        </div>
+        <h1 class="hero-title text-chrome animate-shimmer" style="font-size: clamp(2.8rem, 5vw, 4.8rem);">
+          BLESSING$
+        </h1>
+        <p class="hero-tagline">
+          An opus of West Coast resilience, soulful introspection, and triumphant lyricism. Produced by <strong class="text-diamond">HOLLYWOOD</strong> and composed by <strong class="text-diamond">Eric TRiSTAR McKinney</strong> with <strong class="text-diamond">Cary “Chase” Johnson</strong>.
+        </p>
+
+        <div class="hero-meta-strip">
+          <div class="meta-item">
+            <span class="meta-label">Primary Artist</span>
+            <span class="meta-val">TRiSTAR</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Main Producer</span>
+            <span class="meta-val">HOLLYWOOD</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Total Tracks</span>
+            <span class="meta-val">12 Tracks</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Copyright</span>
+            <span class="meta-val">© 2025 TRiSTAR | ℗ 2025 PSG4L LLC</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-diamond" onclick="openPreSaveModal()">
+            <span class="sparkle-icon">✦</span> PRE-SAVE ON SPOTIFY & APPLE
+          </button>
+          <button class="btn-glass" onclick="togglePlay(1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            PLAY TITLE TRACK
+          </button>
+          <button class="btn-glass" onclick="openLyricsModal('BLESSING$')">
+            READ LYRICS
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-art-showcase">
+        <div class="album-art-card" data-tilt>
+          <div class="album-art-glow"></div>
+          <img src="assets/images/blessings_cover.jpg" alt="BLESSING$ 3000x3000px Single Cover">
+          <div class="album-disc-peek">
+            <div class="album-disc-center">
+              BLESSING$<br>TRiSTAR
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKLIST SECTION -->
+  <section class="section-container">
+    <div class="section-title-wrap">
+      <span class="section-tag">OFFICIAL TRACKLIST</span>
+      <h2 class="section-title text-chrome">THE BLESSING$ SINGLE EXPERIENCE & TRACKLIST</h2>
+      <p class="section-desc">Click any track below to preview the beat and load the lyric sheet.</p>
+    </div>
+
+    <div class="tracklist-wrap bg-glass" style="border: 1px solid var(--border-chrome);">
+      <div class="track-row playing" data-track-id="1" onclick="togglePlay(1)">
+        <div class="track-num">01</div>
+        <div class="track-info">
+          <span class="track-name">BLESSING$ (Title Track)</span>
+          <span class="track-meta">TRiSTAR • Produced by HOLLYWOOD • Written by Eric McKinney, Cary Johnson</span>
+        </div>
+        <div class="track-duration">3:42</div>
+        <button class="track-action-btn" aria-label="Play BLESSING$">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" data-track-id="2" onclick="togglePlay(2)">
+        <div class="track-num">02</div>
+        <div class="track-info">
+          <span class="track-name">PSG4L Anthem (RIP SLO)</span>
+          <span class="track-meta">TRiSTAR • Produced by PSG4L Sound Lab • In memory of Slo Stallone</span>
+        </div>
+        <div class="track-duration">3:18</div>
+        <button class="track-action-btn" aria-label="Play Track 2">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" data-track-id="3" onclick="togglePlay(3)">
+        <div class="track-num">03</div>
+        <div class="track-info">
+          <span class="track-name">Renaissance Man (2025 Redux)</span>
+          <span class="track-meta">TRiSTAR • Produced by Eric TRiSTAR McKinney</span>
+        </div>
+        <div class="track-duration">4:05</div>
+        <button class="track-action-btn" aria-label="Play Track 3">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" data-track-id="4" onclick="togglePlay(4)">
+        <div class="track-num">04</div>
+        <div class="track-info">
+          <span class="track-name">Oh My God (VIP West Coast Mix)</span>
+          <span class="track-meta">TRiSTAR ft. Roscoe • Produced by J. Wells</span>
+        </div>
+        <div class="track-duration">3:30</div>
+        <button class="track-action-btn" aria-label="Play Track 4">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" data-track-id="5" onclick="togglePlay(5)">
+        <div class="track-num">05</div>
+        <div class="track-info">
+          <span class="track-name">Act A Fool (Heavy 808 Edition)</span>
+          <span class="track-meta">TRiSTAR • Produced by PSG4L Records</span>
+        </div>
+        <div class="track-duration">3:12</div>
+        <button class="track-action-btn" aria-label="Play Track 5">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" data-track-id="6" onclick="togglePlay(6)">
+        <div class="track-num">06</div>
+        <div class="track-info">
+          <span class="track-name">Rah Rah (PSG4L Sunset Groove)</span>
+          <span class="track-meta">TRiSTAR ft. Royal skye • Produced by PSG4L Presents Productions</span>
+        </div>
+        <div class="track-duration">3:24</div>
+        <button class="track-action-btn" aria-label="Play Track 6">
+          <span class="track-play-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(1)">
+        <div class="track-num">07</div>
+        <div class="track-info">
+          <span class="track-name">3-Star Pendant (Diamonds Speak)</span>
+          <span class="track-meta">TRiSTAR • Produced by HOLLYWOOD</span>
+        </div>
+        <div class="track-duration">3:15</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(2)">
+        <div class="track-num">08</div>
+        <div class="track-info">
+          <span class="track-name">West Coast Royalty</span>
+          <span class="track-meta">TRiSTAR • Produced by Cary “Chase” Johnson</span>
+        </div>
+        <div class="track-duration">3:50</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(3)">
+        <div class="track-num">09</div>
+        <div class="track-info">
+          <span class="track-name">SSL Board Confessions</span>
+          <span class="track-meta">TRiSTAR • Produced by HOLLYWOOD</span>
+        </div>
+        <div class="track-duration">4:10</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(4)">
+        <div class="track-num">10</div>
+        <div class="track-info">
+          <span class="track-name">Anterazh Forever</span>
+          <span class="track-meta">TRiSTAR • Tribute to the Golden Era</span>
+        </div>
+        <div class="track-duration">3:38</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(5)">
+        <div class="track-num">11</div>
+        <div class="track-info">
+          <span class="track-name">Cruising Crenshaw</span>
+          <span class="track-meta">TRiSTAR • Produced by HOLLYWOOD</span>
+        </div>
+        <div class="track-duration">3:29</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+
+      <div class="track-row" onclick="togglePlay(1)">
+        <div class="track-num">12</div>
+        <div class="track-info">
+          <span class="track-name">Gratitude & Crowns (Outro)</span>
+          <span class="track-meta">TRiSTAR • Executive Produced by PSG4L Presents</span>
+        </div>
+        <div class="track-duration">2:55</div>
+        <button class="track-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICIAL LEGAL & INTAKE DATA -->
+  <section class="section-container">
+    <div class="bg-glass" style="padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);">
+      <span class="section-tag">RECORD SUBMISSION VERIFICATION</span>
+      <h3 class="text-chrome" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem;">PSG4L PRESENTS SUBMISSION RECORD</h3>
+      
+      <div class="grid-3" style="gap: 1.5rem; font-size: 0.9rem;">
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 12px;">
+          <div style="color: var(--chrome-400); font-size: 0.75rem; text-transform: uppercase;">Single Name</div>
+          <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">BLESSINGS (Single)</div>
+          <div style="color: var(--diamond-cyan); font-size: 0.8rem; margin-top: 0.5rem;">Track #1: BLESSING$</div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 12px;">
+          <div style="color: var(--chrome-400); font-size: 0.75rem; text-transform: uppercase;">Primary Artist & Legal</div>
+          <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">TRiSTAR</div>
+          <div style="color: var(--chrome-300); font-size: 0.8rem; margin-top: 0.5rem;">Eric TRiSTAR McKinney (Composer / Writer)</div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 12px;">
+          <div style="color: var(--chrome-400); font-size: 0.75rem; text-transform: uppercase;">Production & Key Contributor</div>
+          <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">HOLLYWOOD</div>
+          <div style="color: var(--chrome-300); font-size: 0.8rem; margin-top: 0.5rem;">Cary “Chase” Johnson (Contributor 2)</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <div style="color: var(--gold-primary); font-size: 0.85rem; font-weight: 700;">
+          (c) Copyright: 2025 TRiSTAR • (p) Phonographic Copyright: 2025 PSG4L llc
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <button class="btn-diamond" onclick="openPreSaveModal()" style="font-size: 0.8rem; padding: 0.6rem 1.2rem;">
+            PRE-SAVE SINGLE
+          </button>
+          <a href="contact.html" class="btn-glass" style="font-size: 0.8rem; padding: 0.6rem 1.2rem;">
+            LICENSING & SYNC
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <aside class="audio-player-bar" aria-label="Audio Player">
+    <div class="player-inner">
+      <div class="player-track-info">
+        <div class="player-thumb">
+          <img id="player-track-thumb" src="assets/images/blessings_cover.jpg" alt="Track Artwork">
+        </div>
+        <div class="player-text">
+          <div class="player-title" id="player-track-title">BLESSINGS (Single)</div>
+          <div class="player-artist" id="player-track-artist">TRiSTAR • BLESSING$</div>
+        </div>
+      </div>
+
+      <div class="player-controls-wrap">
+        <div class="player-btn-group">
+          <button class="player-control-btn" id="player-prev-btn" aria-label="Previous Track">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line></svg>
+          </button>
+          <button class="player-play-btn" id="player-play-btn" aria-label="Play or Pause">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </button>
+          <button class="player-control-btn" id="player-next-btn" aria-label="Next Track">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line></svg>
+          </button>
+        </div>
+
+        <div class="player-progress-bar">
+          <span id="player-cur-time">0:00</span>
+          <div class="progress-track" id="player-progress-track">
+            <div class="progress-fill" id="player-progress-fill"></div>
+          </div>
+          <span id="player-dur-time">3:42</span>
+        </div>
+      </div>
+
+      <div class="player-visualizer-wrap">
+        <canvas id="player-visualizer" class="visualizer-canvas" width="120" height="32"></canvas>
+        <div class="volume-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <input type="range" id="player-volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7" aria-label="Volume">
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="modal-backdrop" id="presave-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closePreSaveModal()" aria-label="Close modal">✕</button>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="section-tag">OFFICIAL PRE-SAVE PORTAL</span>
+        <h2 class="text-diamond" style="font-family: var(--font-display); font-size: 2.2rem;">BLESSINGS (Single)</h2>
+        <p style="color: var(--chrome-300); font-size: 0.9rem;">Pre-save the upcoming single by TRiSTAR to your favorite music service.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+        <button class="btn-diamond btn-spotify" style="width: 100%; justify-content: center; padding: 1rem;" onclick="handlePreSaveSubmit('Spotify')">
+          PRE-SAVE ON SPOTIFY
+        </button>
+        <button class="btn-diamond btn-apple" style="width: 100%; justify-content: center; padding: 1rem;" onclick="handlePreSaveSubmit('Apple Music')">
+          PRE-ADD ON APPLE MUSIC
+        </button>
+      </div>
+
+      <div id="presave-success" style="display: none; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--diamond-cyan); padding: 1rem; border-radius: 12px; text-align: center; color: #fff; font-size: 0.9rem;">
+        ⭐ <strong>Pre-Save Confirmed!</strong> You have unlocked the exclusive VIP collector badge.
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="lyrics-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeLyricsModal()" aria-label="Close modal">✕</button>
+      <span class="section-tag" id="lyrics-meta"></span>
+      <h2 class="text-chrome" id="lyrics-title" style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 0.25rem;"></h2>
+      <p id="lyrics-writers" style="color: var(--diamond-cyan); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;"></p>
+      <p id="lyrics-legal" style="color: var(--gold-primary); font-size: 0.8rem; margin-bottom: 1.5rem;"></p>
+      
+      <div style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); max-height: 380px; overflow-y: auto;">
+        <pre id="lyrics-text" style="font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; color: var(--chrome-200); white-space: pre-wrap;"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="lightbox-modal" onclick="closeLightbox()">
+    <div class="modal-card" style="max-width: 800px; padding: 1.5rem; background: #000;" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeLightbox()" aria-label="Close lightbox">✕</button>
+      <img id="lightbox-img" src="" alt="Enlarged photo" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
+      <p id="lightbox-caption" style="color: var(--chrome-300); font-size: 0.9rem; text-align: center;"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="brand-badge">
+            <img src="assets/images/gsr_logo.jpg" alt="TRiSTAR Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name text-chrome">TRiSTAR</span>
+            <span class="brand-sub">PSG4L PRESENTS</span>
+          </div>
+        </div>
+        <p style="color: var(--chrome-400); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          American West Coast hip-hop artist, songwriter, and performer. Spearheading the new era of West Coast soul with the upcoming single <strong>BLESSINGS (Single)</strong>.
+        </p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="https://www.instagram.com/westsiidetrizzy/" target="_blank" rel="noopener noreferrer" style="color: var(--diamond-cyan);" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://open.spotify.com/artist/0QhpfNOZLMtrewBkXTEwA0?si=aca-bWc3Tjy0kXfOW31yKA&pi=Sa3Hg4v4TAqlz" target="_blank" rel="noopener noreferrer" style="color: #1DB954;" aria-label="Spotify">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.485 17.311c-.218.358-.684.473-1.042.255-2.855-1.745-6.449-2.14-10.682-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.059 8.607-.611 11.808 1.346.358.218.473.684.255 1.055zm1.464-3.256c-.274.446-.86.587-1.306.313-3.268-2.008-8.25-2.591-12.116-1.417-.5.152-1.03-.133-1.182-.633-.152-.5.133-1.03.633-1.182 4.417-1.341 9.912-.693 13.658 1.613.446.274.587.86.313 1.306zm.125-3.39c-3.918-2.327-10.37-2.542-14.099-1.41-.601.183-1.238-.163-1.421-.764-.183-.601.163-1.238.764-1.421 4.288-1.302 11.411-1.05 15.908 1.618.54.32.716 1.02.396 1.56-.32.54-1.02.716-1.548.417z"/></svg>
+          </a>
+          <a href="https://music.apple.com/us/artist/tri-star/342568394" target="_blank" rel="noopener noreferrer" style="color: #fa243c;" aria-label="Apple Music">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 7.17c.65-.79 1.1-1.88.98-2.97-.95.04-2.1 1.02-2.73 1.76-.56.65-1.05 1.77-.92 2.82 1.06.08 2.02-.82 2.67-1.61z"/></svg>
+          </a>
+          <a href="https://on.soundcloud.com/VJmAA7bxvXIPSvAxqy" target="_blank" rel="noopener noreferrer" style="color: #ff5500;" aria-label="SoundCloud">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.56 8.87V17h9.55c1.6 0 2.89-1.29 2.89-2.89 0-1.54-1.2-2.79-2.71-2.88.06-.31.09-.64.09-.97 0-2.81-2.28-5.09-5.09-5.09-1.66 0-3.13.8-4.06 2.03-.22-.16-.46-.3-.72-.41l.05 1.08z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home Portal</a></li>
+          <li><a href="album.html" class="footer-link">Blessings Single</a></li>
+          <li><a href="music.html" class="footer-link">Discography</a></li>
+          <li><a href="merch.html" class="footer-link">Merch Store</a></li>
+          <li><a href="about.html" class="footer-link">Artist Biography</a></li>
+          <li><a href="gallery.html" class="footer-link">Visual Gallery</a></li>
+          <li><a href="contact.html" class="footer-link">Booking & EPK</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Streaming Hub</h4>
+        <ul class="footer-links">
+          <li><a href="https://open.spotify.com/artist/0QhpfNOZLMtrewBkXTEwA0?si=aca-bWc3Tjy0kXfOW31yKA&pi=Sa3Hg4v4TAqlz" target="_blank" rel="noopener noreferrer" class="footer-link">Spotify Profile</a></li>
+          <li><a href="https://music.apple.com/us/artist/tri-star/342568394" target="_blank" rel="noopener noreferrer" class="footer-link">Apple Music</a></li>
+          <li><a href="https://on.soundcloud.com/VJmAA7bxvXIPSvAxqy" target="_blank" rel="noopener noreferrer" class="footer-link">SoundCloud</a></li>
+          <li><a href="https://rateyourmusic.com/artist/tri-star" target="_blank" rel="noopener noreferrer" class="footer-link">RateYourMusic Discography</a></li>
+          <li><a href="https://www.instagram.com/westsiidetrizzy/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram (@westsiidetrizzy)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Presented By</h4>
+        <div style="color: var(--chrome-400); font-size: 0.85rem; line-height: 1.6;">
+          <p><strong>PSG4L LLC</strong></p>
+          <p>PSG4L Presents</p>
+          <p style="margin-top: 0.5rem;">For booking & press inquiries:</p>
+          <a href="contact.html" style="color: var(--diamond-cyan); font-weight: 700; text-decoration: none;">booking@psg4l.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        © 2025 TRiSTAR. All Rights Reserved. ℗ 2025 PSG4L LLC.
+      </div>
+      <div class="footer-legal-badge">
+        <span>PSG4L PRESENTS</span>
+        <span>WEST COAST HIP HOP</span>
+        <span>BLESSING$ SINGLE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/diamond-chrome.js"></script>
+  <script src="assets/js/audio-player.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
