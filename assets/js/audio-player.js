@@ -1,4 +1,4 @@
-﻿/**
+/**
  * TRiSTAR - LUXURY AUDIO PLAYER & WEB AUDIO ENGINE
  * Supports real audio playback for "Blessings" (blessed.wav) with live Web Audio Analyser Equalizer,
  * and procedural fallback engine for catalog previews.
@@ -17,8 +17,8 @@
       producer: "HOLLYWOOD",
       year: "2026",
       cover: "assets/images/blessings_cover.jpg",
-      audioSrc: "assets/audio/blessed.wav",
-      duration: "1:15",
+      audioSrc: "assets/audio/Blessings - Tri-Star FINAL.m4a",
+      duration: "3:42",
       bpm: 88,
       key: "F minor",
       scale: [174.61, 207.65, 233.08, 261.63, 311.13, 349.23, 415.30]
