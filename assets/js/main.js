@@ -1,4 +1,4 @@
-﻿/**
+/**
  * TRiSTAR - MAIN APPLICATION & MODALS SCRIPT
  * Navigation, Pre-Save Modal, Lyrics Viewer, Lightbox, and Toast Notifications
  */
@@ -236,7 +236,7 @@ Pour a little liquor, turn the memory to reign!`
 })();
   // MERCHANDISE CART & STORE HANDLERS
   let cart = [
-    { title: '"Blessings" Vintage Heavyweight Graphic Tee', price: 45.00, size: 'L', img: 'assets/images/merch_tee.jpg', qty: 1 }
+    { title: '"Blessings" Heavyweight Graphic Tee', price: 35.00, size: 'L', img: 'assets/images/merch_tee.jpg', qty: 1 }
   ];
 
   window.openCart = function() {
@@ -255,13 +255,18 @@ Pour a little liquor, turn the memory to reign!`
   };
 
   window.addToCart = function(title, price, img) {
-    const existing = cart.find(item => item.title === title);
+    let selectedSize = 'L';
+    const activeSizeBtn = event && event.target ? event.target.closest('.merch-card')?.querySelector('.size-btn.active') : null;
+    if (activeSizeBtn) {
+      selectedSize = activeSizeBtn.textContent.trim();
+    }
+    const existing = cart.find(item => item.title === title && item.size === selectedSize);
     if (existing) {
       existing.qty++;
     } else {
-      cart.push({ title, price, size: 'L', img, qty: 1 });
+      cart.push({ title, price, size: selectedSize, img, qty: 1 });
     }
-    window.showToast(`🛍️ Added ${title} to your bag!`);
+    window.showToast(`🛍️ Added ${title} (${selectedSize}) to your bag!`);
     window.openCart();
   };
 
@@ -320,7 +325,7 @@ Pour a little liquor, turn the memory to reign!`
       <div class="cart-footer">
         <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 700;">
           <span style="color: var(--chrome-300);">SUBTOTAL:</span>
-          <span id="cart-subtotal" style="color: #fff; font-size: 1.1rem;">$45.00</span>
+          <span id="cart-subtotal" style="color: #fff; font-size: 1.1rem;">$35.00</span>
         </div>
         <button class="btn-diamond" style="width: 100%; justify-content: center; padding: 0.9rem;" onclick="handleCheckout()">
           PROCEED TO CHECKOUT
