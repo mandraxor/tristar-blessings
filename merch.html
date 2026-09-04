@@ -64,7 +64,7 @@
 
     <!-- MERCH FILTER BUTTONS -->
     <div class="merch-filter-wrap">
-      <button class="merch-filter-btn active" onclick="filterMerch('all')">ALL PRODUCTS (12)</button>
+      <button class="merch-filter-btn active" onclick="filterMerch('all')">ALL PRODUCTS (8)</button>
       <button class="merch-filter-btn" onclick="filterMerch('tees')">BASIC TEES & LONGSLEEVES</button>
       <button class="merch-filter-btn" onclick="filterMerch('hoodies')">HOODIES & SWEATSHIRTS</button>
       <button class="merch-filter-btn" onclick="filterMerch('posters')">UPGRADED ART POSTERS</button>
@@ -73,7 +73,7 @@
     <!-- MERCHANDISE GRID -->
     <div class="merch-grid">
       <!-- Item 1: Blessings Heavyweight Tee -->
-      <div class="merch-card bg-glass" data-cat="tees" data-tilt>
+      <div class="merch-card bg-glass" data-cat="apparel" data-tilt>
         <div class="merch-img-wrap">
           <span class="merch-tag-badge">TOP SELLER</span>
           <img src="assets/images/merch_tee.jpg" alt="Blessings Heavyweight Cotton Tee">
@@ -101,7 +101,7 @@
       </div>
 
       <!-- Item 2: Blessings French Terry Hoodie -->
-      <div class="merch-card bg-glass" data-cat="hoodies" data-tilt>
+      <div class="merch-card bg-glass" data-cat="apparel" data-tilt>
         <div class="merch-img-wrap">
           <span class="merch-tag-badge">PREMIUM FLEECE</span>
           <img src="assets/images/merch_hoodie.jpg" alt="Blessings French Terry Hoodie">
@@ -128,89 +128,8 @@
         </div>
       </div>
 
-      <!-- Item 3: TRiSTAR Classic Street Tee -->
-      <div class="merch-card bg-glass" data-cat="tees" data-tilt>
-        <div class="merch-img-wrap">
-          <span class="merch-tag-badge">STREETWEAR</span>
-          <img src="assets/images/tristar_front.jpg" alt="TRiSTAR PSG4L Street Tee">
-        </div>
-        <div class="merch-body">
-          <span class="merch-cat">APPAREL • 100% PRE-SHRUNK COTTON</span>
-          <h3 class="merch-title">TRiSTAR "PSG4L" Classic Street Tee</h3>
-          <div class="merch-price-row">
-            <span class="merch-price">$35.00</span>
-          </div>
-          <div class="size-selector">
-            <button class="size-btn" onclick="selectSize(this)">S</button>
-            <button class="size-btn" onclick="selectSize(this)">M</button>
-            <button class="size-btn active" onclick="selectSize(this)">L</button>
-            <button class="size-btn" onclick="selectSize(this)">XL</button>
-            <button class="size-btn" onclick="selectSize(this)">2XL</button>
-          </div>
-          <div class="merch-actions">
-            <button class="btn-diamond" style="width: 100%; justify-content: center; font-size: 0.8rem;" onclick="addToCart('TRiSTAR &quot;PSG4L&quot; Classic Street Tee', 35.00, 'assets/images/tristar_front.jpg')">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 4: TRiSTAR RIP SLO Tribute Tee -->
-      <div class="merch-card bg-glass" data-cat="tees" data-tilt>
-        <div class="merch-img-wrap">
-          <span class="merch-tag-badge">BROTHERHOOD EDITION</span>
-          <img src="assets/images/tristar_ripslo.jpg" alt="TRiSTAR RIP SLO Tribute Tee">
-        </div>
-        <div class="merch-body">
-          <span class="merch-cat">APPAREL • HEAVYWEIGHT COTTON</span>
-          <h3 class="merch-title">TRiSTAR "RIP SLO" Tribute Tee</h3>
-          <div class="merch-price-row">
-            <span class="merch-price">$35.00</span>
-          </div>
-          <div class="size-selector">
-            <button class="size-btn" onclick="selectSize(this)">S</button>
-            <button class="size-btn" onclick="selectSize(this)">M</button>
-            <button class="size-btn active" onclick="selectSize(this)">L</button>
-            <button class="size-btn" onclick="selectSize(this)">XL</button>
-            <button class="size-btn" onclick="selectSize(this)">2XL</button>
-          </div>
-          <div class="merch-actions">
-            <button class="btn-diamond" style="width: 100%; justify-content: center; font-size: 0.8rem;" onclick="addToCart('TRiSTAR &quot;RIP SLO&quot; Tribute Tee', 35.00, 'assets/images/tristar_ripslo.jpg')">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 5: TRiSTAR Official Zip Track Hoodie -->
-      <div class="merch-card bg-glass" data-cat="hoodies" data-tilt>
-        <div class="merch-img-wrap">
-          <span class="merch-tag-badge">AS WORN BY TRiSTAR</span>
-          <img src="assets/images/tristar_street.jpg" alt="TRiSTAR PSG4L Zip Track Hoodie">
-        </div>
-        <div class="merch-body">
-          <span class="merch-cat">APPAREL • HEAVYWEIGHT FLEECE</span>
-          <h3 class="merch-title">TRiSTAR "PSG4L" Zip Track Hoodie</h3>
-          <div class="merch-price-row">
-            <span class="merch-price">$80.00</span>
-          </div>
-          <div class="size-selector">
-            <button class="size-btn" onclick="selectSize(this)">S</button>
-            <button class="size-btn" onclick="selectSize(this)">M</button>
-            <button class="size-btn active" onclick="selectSize(this)">L</button>
-            <button class="size-btn" onclick="selectSize(this)">XL</button>
-            <button class="size-btn" onclick="selectSize(this)">2XL</button>
-          </div>
-          <div class="merch-actions">
-            <button class="btn-diamond" style="width: 100%; justify-content: center; font-size: 0.8rem;" onclick="addToCart('TRiSTAR &quot;PSG4L&quot; Zip Track Hoodie', 80.00, 'assets/images/tristar_street.jpg')">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 6: TRiSTAR RIP SLO Pullover Hoodie -->
-      <div class="merch-card bg-glass" data-cat="hoodies" data-tilt>
+      <!-- Item 3: TRiSTAR RIP SLO Pullover Hoodie -->
+      <div class="merch-card bg-glass" data-cat="apparel" data-tilt>
         <div class="merch-img-wrap">
           <span class="merch-tag-badge">MEMORIAL EDITION</span>
           <img src="assets/images/tristar_ripslo.jpg" alt="TRiSTAR RIP SLO Pullover Hoodie">
@@ -236,35 +155,8 @@
         </div>
       </div>
 
-      <!-- Item 7: Blessings 4/10/26 Longsleeve -->
-      <div class="merch-card bg-glass" data-cat="tees" data-tilt>
-        <div class="merch-img-wrap">
-          <span class="merch-tag-badge">TOUR MERCH</span>
-          <img src="assets/images/merch_tee.jpg" alt="Blessings 4/10/26 Longsleeve">
-        </div>
-        <div class="merch-body">
-          <span class="merch-cat">APPAREL • HEAVY LONG SLEEVE</span>
-          <h3 class="merch-title">"Release Date 4/10/26" Longsleeve</h3>
-          <div class="merch-price-row">
-            <span class="merch-price">$45.00</span>
-          </div>
-          <div class="size-selector">
-            <button class="size-btn" onclick="selectSize(this)">S</button>
-            <button class="size-btn" onclick="selectSize(this)">M</button>
-            <button class="size-btn active" onclick="selectSize(this)">L</button>
-            <button class="size-btn" onclick="selectSize(this)">XL</button>
-            <button class="size-btn" onclick="selectSize(this)">2XL</button>
-          </div>
-          <div class="merch-actions">
-            <button class="btn-diamond" style="width: 100%; justify-content: center; font-size: 0.8rem;" onclick="addToCart('&quot;Release Date 4/10/26&quot; Longsleeve', 45.00, 'assets/images/merch_tee.jpg')">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 8: TRiSTAR 3-Star Signature Crewneck -->
-      <div class="merch-card bg-glass" data-cat="hoodies" data-tilt>
+      <!-- Item 4: TRiSTAR 3-Star Signature Crewneck -->
+      <div class="merch-card bg-glass" data-cat="apparel" data-tilt>
         <div class="merch-img-wrap">
           <span class="merch-tag-badge">CLASSIC FLEECE</span>
           <img src="assets/images/tristar_mic.jpg" alt="TRiSTAR Signature Crewneck">
